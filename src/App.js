@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import Main from './components/pages/Main';
+import Stat from './components/pages/Stat'
+import { useState } from 'react';
+import Head from './components/views/global/Head';
+import Foot from './components/views/global/Foot';
 function App() {
+
+  const [showPage, setShowPage] = useState('main')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Head action={setShowPage}/>
+      {
+        showPage === 'main' ? <Main></Main> : <Stat></Stat>
+      }
+      <Foot/>
+    </React.Fragment>
   );
 }
 
