@@ -1,9 +1,11 @@
 import React from "react";
 import DataList from "../views/local/DataList";
-const Plan = () =>{
+import DataChart from "../views/local/DataChart";
+const Plan = ({statData}) =>{
     return(
         <React.Fragment>
-            <DataList data ={[]}></DataList>
+            <DataList data ={statData}></DataList>
+            <DataChart data ={statData}></DataChart>
         </React.Fragment>
     )
 }

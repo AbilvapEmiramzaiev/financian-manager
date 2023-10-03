@@ -7,11 +7,15 @@ import Foot from './components/views/global/Foot';
 function App() {
 
   const [showPage, setShowPage] = useState('main')
+  const [data, setData] = useState(["2000::Income::Salary",
+                                    "200::Expense::Rent",
+                                    "100::Expense::Clothes",
+                                    "50::Expense::Car Maintance"])
   return (
     <React.Fragment>
       <Head action={setShowPage}/>
       {
-        showPage === 'main' ? <Main></Main> : <Stat></Stat>
+        showPage === 'main' ? <Main action={setData}></Main> : <Stat statData={data}></Stat>
       }
       <Foot/>
     </React.Fragment>
